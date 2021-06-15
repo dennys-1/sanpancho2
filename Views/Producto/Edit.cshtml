@@ -1,0 +1,104 @@
+@model Mi_proyecto.Models.Producto
+
+@{
+    ViewData["Title"] = "Usuario";
+}
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<section id="catalogue" class="catalogue section-bg" style="text-align: center;">
+
+<div class="section-title">
+          <h2>Editar Monturas Registrados</h2>
+          <p>Edita La montura registrada completando el siguiente formulario</p>
+</div>
+
+<div class="container">
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <form asp-controller="Producto" asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            
+            <div class="form-group formM">
+                <label asp-for="Marca" class="colorForm"></label>
+                <input asp-for="Marca" class="form-control" />
+                <span asp-validation-for="Marca" class="text-danger"></span>
+            </div>                  
+                   
+            <div class="form-group formM">
+                <label asp-for="Stock" class="colorForm"></label>
+                <input asp-for="Stock" class="form-control" />
+            </div>               
+              <div class="form-group formM">
+                <label asp-for="Talla" class="colorForm"></label>
+                <input asp-for="Talla" class="form-control" />
+            </div>      
+              <div class="form-group formM">
+                <label asp-for="Material" class="colorForm"></label>
+                <input asp-for="Material" class="form-control" />
+            </div>      
+              <div class="form-group formM">
+                <label asp-for="Descripcion" class="colorForm"></label>
+                <input asp-for="Descripcion" class="form-control" />
+            </div>      
+              <div class="form-group formM">
+                <label asp-for="Color" class="colorForm"></label>
+                <input asp-for="Color" class="form-control" />
+            </div>      
+              <div class="form-group formM">
+                <label asp-for="Precio" class="colorForm"></label>
+                <input asp-for="Precio" class="form-control" />
+           
+            <div class="form-group formM">
+                <label asp-for="imagen" class="colorForm"></label>
+                <input asp-for="imagen" class="form-control" />
+            </div> 
+             
+            <div class="form-group center">
+                 <button type="submit" class="btn btn-success">Actualizar</button> 
+                <button  class="btn btn-danger"  onclick="window.location='@Url.Action("Listar", "Producto")'" >Cancelar</button> 
+            </div>                
+
+        </form>
+            
+        <td>@Html.DisplayTextFor(model => model.Respuesta)</td>    
+    
+    </div>
+</div>
+</div>
+</section>
+
+<script>
+    document.querySelector('#Editar').addEventListener('submit', function(e) {
+      var form = this;
+      
+      e.preventDefault();
+      
+      swal({
+          title: "¿Está seguro de la acción?",
+          text: "Esto cambiará los datos del producto",
+          icon: "warning",
+          buttons: [
+            'Cancelar',
+            'Continuar'
+          ],
+          dangerMode: true,
+        }).then(function(isConfirm) {
+          if (isConfirm) {
+           
+              form.submit();
+          
+          } else {
+            swal("Acción cancelada", "El producto no se ha modificado", "error");
+          }
+        });
+    });
+
+    
+  </script>
+  
+  <style>
+    .swal-button--confirm {
+      background-color: #DD6B55;
+    }
+  </style>

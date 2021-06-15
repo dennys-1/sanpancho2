@@ -1,0 +1,89 @@
+@model Mi_proyecto.Models.Producto
+
+@{
+    ViewData["Title"] = "Registro de Monturas";
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<section id="catalogue" class="catalogue section-bg" style="text-align: center;">
+<div class="section-title">
+          <h2 >Registro de Monturas</h2>
+          <p>Registra las Monturas completando el siguiente formulario</p>
+</div>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+
+   <form asp-controller="Producto" asp-action="Enviar">
+       <div class="form-group formM">
+            <label asp-for="Marca" class="colorForm"></label>
+                <input asp-for="Marca" class="form-control"/>
+                <span asp-validation-for="Marca" class="text-danger"></span>
+        </div class="form-group">
+
+              <div class="form-group formM">
+                <label asp-for="Codigo" class="colorForm" ></label>
+                <input asp-for="Codigo" class="form-control"/>
+                <span asp-validation-for="Codigo" class="text-danger"></span>
+
+            </div>
+            
+               <div class="form-group formM">
+                <label asp-for="Material" class="colorForm"></label>
+                <input asp-for="Material" class="form-control"/>
+                <span asp-validation-for="Material" class="text-danger"></span>
+
+            </div>
+          <div class="form-group formM">
+                <label asp-for="Descripcion" class="colorForm" ></label>
+                <input asp-for="Descripcion" class="form-control"/>
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+
+            </div>
+
+              <div class="form-group formM">
+                <label asp-for="Color" class="colorForm"></label>
+                <input asp-for="Color" class="form-control"/>
+                <span asp-validation-for="Color" class="text-danger"></span>
+
+            </div>
+
+               <div class="form-group formM">
+                <label asp-for="Stock" class="colorForm"></label>
+                <input asp-for="Stock" class="form-control"/>
+                <span asp-validation-for="Stock" class="text-danger"></span>
+
+            </div>
+
+               <div class="form-group formM">
+                <label asp-for="Precio" class="colorForm"></label>
+                <input asp-for="Precio" class="form-control"/>
+                <span asp-validation-for="Precio" class="text-danger"></span>
+
+            </div>
+            
+            <div class="form-group formM">
+                <label asp-for="Descripcion" class="colorForm"></label>
+                <textarea asp-for="Descripcion" class="form-control"></textarea>
+            </div> 
+
+            <div class="form-group formM">
+                <label asp-for="imagen" class="colorForm"></label>
+                <input asp-for="imagen" class="form-control"></input>
+                <span type="text" asp-validation-for="imagen" class="text-danger"></span>
+            </div> 
+
+              <div class="form-group text-center" >
+              <button type="submit" class="btn btn-success">Registrar</button>
+               <button asp-action="Listar" class="btn btn-success">Almacen</button>
+              <button asp-action="Listar" class="btn btn-danger"> Cancelar</button>
+              </div>
+              
+   </form>
+
+</div>
+</div>
+</div>
+</section>
