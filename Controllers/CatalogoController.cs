@@ -31,6 +31,17 @@ namespace Mi_proyecto.Controllers
             return View(listContactos);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Index(String Empsearch){
+            ViewData["Getemployeedetails"]=Empsearch;
+            var empquery=from x in _context.Productos select x;
+            if(!string.IsNullOrEmpty(Empsearch)){
+                empquery=empquery.Where(x =>x.Marca.Contains(Empsearch))  ;
+            }
+            return View(await empquery.AsNoTracking().ToListAsync());
+
+        }
+
         // GET: Contacto/Edit/5
         public async Task<IActionResult> Info(int? id)
         {

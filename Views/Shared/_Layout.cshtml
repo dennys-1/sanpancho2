@@ -6,9 +6,17 @@
     <title>@ViewData["Title"] - Index</title>
     <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="~/css/estilos.css" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
     <link href="~/lib/icofont/icofont.min.css" rel="stylesheet">
     <link href="~/lib/boxicons/css/boxicons.min.css" rel="stylesheet">
+
+     <!--Google fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+    <!--Font Awesome-->
+    <script src="https://kit.fontawesome.com/4b50d01cdc.js" crossorigin="anonymous"></script>
+
+
 </head>
 <body>
   <header style="background-color: #297D90;">
@@ -21,12 +29,22 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <div class="social">
+        <ul>
+      
+      <li> <a href="https://m.me/CentroOpticoSanFrancisco" target="_blank" class="fab fa-facebook-messenger" id="icons"></a></li>
+      <li> <a href="https://api.whatsapp.com/send?phone=995553009&text=Hola%20como%20Estas" target="_blank" class="fab fa-whatsapp" id="icons"></a></li>
+      
+    
+    </ul>
+        </div>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                        <partial name="_LoginPartial" />
                         <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item center">
                            <a class="nav-link colorLetter" class="center" asp-controller="Home" asp-action="Index">Inicio</a>
                         </li>
+
                          <li class="nav-item center">
                             <a class="nav-link colorLetter" class="center" asp-controller="Catalogo" asp-action="Index">Catalogo</a>
                         </li>
