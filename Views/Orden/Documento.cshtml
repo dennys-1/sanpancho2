@@ -1,0 +1,109 @@
+@model IEnumerable<Mi_proyecto.Models.OrdenDetail>
+@{
+    ViewData["Title"] = "Carrito de Compras";
+}
+
+<section id="catalogue" class="catalogue section-bg" style="text-align: center;">
+     
+ <div>
+          <h2> BOLETA DE VENTAS</h2>
+        
+        </div>
+        <br>
+
+    <div class="row catalogue-container"></div>
+
+    <table class="table table-hover">
+    <thead class="tables">
+        <tr style="color: white;">
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Precio)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Cantidad)
+                </th>
+        </tr>
+    </thead>
+	@foreach (var item in Model)
+	{
+        @if (item.Email == @User.Identity.Name)
+        {
+            <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cantidad)
+            </td>
+            </tr>
+        }
+	}
+    </tbody>    
+</table>
+ @{
+          Decimal total = 0;
+
+         var contar = 0;
+      }
+      @foreach (var item in Model){
+         <tr>
+            @{
+               total = total + item.Precio;
+               contar++;
+            }
+         </tr>
+      }
+
+
+
+<div class="container">
+         <h4>Total: S/ @total </h4> 
+           
+            </div>
+           
+            </div>
+    </section>
+
+    
+      <br>
+
+<footer id="footer">
+
+    <div class="footer-top">
+
+      <div class="container" data-aos="fade-up">
+
+        <div class="row  justify-content-center">
+          <div class="col-lg-6">
+            <h3>San Francisco</h3>
+            <p>Dirección:Peral 301 Cercado </p>
+            <p>Telefono: +51 995553009</p>
+          </div>
+        </div>
+
+        
+
+        <div class="social-links">
+          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+          <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+ 
+    </div>
+
+    <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        &copy; Copyright <strong><span> Copyright</span></strong>. Todos los derechos reservador
+      </div>
+      <div class="credits">
+        Diseñado por <a href="#"> Bnos</a>
+      </div>
+    </div>
+  </footer>	
