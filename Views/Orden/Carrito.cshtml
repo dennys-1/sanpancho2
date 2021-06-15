@@ -7,16 +7,16 @@
       <div class="container">
 
         <div class="section-title">
-          <h2 data-aos="fade-in">Carrito de Compras</h2>
+          <h2> Carrito de Compras</h2>
           <p data-aos="fade-in">Los producto seleccionados apareceran aca</p>
         </div>
 
 
-    <div class="row catalogue-container" data-aos="fade-up">
+    <div class="row catalogue-container">
 
     <table class="table table-hover">
     <thead class="tables">
-        <tr>
+        <tr style="color: white;">
                 <th scope="col">
                     @Html.DisplayNameFor(model => model.Nombre)
                 </th>
@@ -47,6 +47,26 @@
 	}
     </tbody>    
 </table>
+ @{
+          Decimal total = 0;
+
+         var contar = 0;
+      }
+      @foreach (var item in Model){
+         <tr>
+            @{
+               total = total + item.Precio;
+               contar++;
+            }
+         </tr>
+      }
+
+
+
+<div class="container">
+         <h4>Total: S/ @total </h4> 
+           
+            </div>
            
             </div>
     </section>

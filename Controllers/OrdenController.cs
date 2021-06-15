@@ -10,11 +10,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Rotativa.AspNetCore;
 
 namespace LibreMi_proyectoriaProgra.Controllers
 {
+    
     public class OrdenController : Controller
     {
+        
         private readonly ILogger< OrdenController> _logger;
         private readonly ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
@@ -54,5 +57,15 @@ namespace LibreMi_proyectoriaProgra.Controllers
             var listContactos=_context.OrdenDetails.ToList();
             return View(listContactos);
         }
+          public async  Task<IActionResult> Documento()
+        {
+            
+           // return View(await _context.Documento.ToListAsync());
+             return new ViewAsPdf("Documento",await _context.OrdenDetails.ToListAsync())
+             {
+//..
+             };
+        }
+        
     }
 }
